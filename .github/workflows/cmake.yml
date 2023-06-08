@@ -43,7 +43,7 @@ jobs:
 
       # install vcpkg
     - name: Get vcpkg(windows)
-        # The platform is windows and is not cached
+      # The platform is windows and is not cached
       if: ${{ steps.vcpkg-cache.outputs.cache-hit != 'true' }}
       run: |
           cd ${{ github.workspace }}
@@ -61,7 +61,6 @@ jobs:
     
     - name: Running cmake
       run: |
-         mkdir build
          cd ${{ github.workspace }}
          cd build
          cmake .. -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release
